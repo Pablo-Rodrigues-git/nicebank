@@ -23,6 +23,11 @@ fun main() {
     var numeroY = numeroX // criei uma segunda variável que recebe por parâmetro a variavel numeroX (anterior)
     numeroY++ // incerementei a variavel numeroY sem alterara o valor de numeroX
 
+    /* porque isso acontece?
+    quando instancio uma referencia de variavel primitiva,
+    estou enviando apenas uma cópia da mesma e não uma referência da mesma.
+     */
+
     println(numeroX)
     println(numeroY)
 
