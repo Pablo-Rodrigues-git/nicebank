@@ -1,6 +1,17 @@
 fun main() {
     println("Bem vindo ao Nice Bank!!!")
+    Conta() // Instância de uma classe
+    val conta = Conta()  // Apontando para um objeto, o que me permite alterar os atributos dentro dele.
+    conta.titular = "Pablao Mitico"
+    println(conta.titular)
+
     }
+
+class Conta {
+    var titular = ""
+    var numero = 0
+    var saldo = 0.0
+}
 
 fun testaLacos(){
     var i = 0
