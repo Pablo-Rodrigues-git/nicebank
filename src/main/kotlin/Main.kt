@@ -1,9 +1,15 @@
 fun main() {
     println("Bem vindo ao Nice Bank!!!")
+
     Conta() // Instância de uma classe
-    val conta = Conta()  // Apontando para um objeto, o que me permite alterar os atributos dentro dele.
-    conta.titular = "Pablao Mitico"
-    println(conta.titular)
+
+    val contaPablo = Conta()  // Apontando para um objeto, o que me permite alterar os atributos dentro dele.
+    contaPablo.titular = "Pablao Mitico"
+    println(contaPablo.titular)
+
+    val contaMaria = Conta()
+    contaMaria.titular = "Maria Rafaela"
+    println(contaMaria.titular)
 
     }
 
