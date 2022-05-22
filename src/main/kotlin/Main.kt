@@ -3,13 +3,21 @@ fun main() {
 
     Conta() // Instância de uma classe
 
-    val contaPablo = Conta()  // Apontando para um objeto, o que me permite alterar os atributos dentro dele.
+    val contaPablo = Conta()  // Apontando para um objeto, o que me permite acessar e alterar os atributos dentro dele.
     contaPablo.titular = "Pablao Mitico"
+    contaPablo.numero = 1000
+    contaPablo.saldo = 10000.0
     println(contaPablo.titular)
+    println(contaPablo.numero)
+    println(contaPablo.saldo)
 
     val contaMaria = Conta()
     contaMaria.titular = "Maria Rafaela"
+    contaMaria.numero = 1001
+    contaMaria.saldo = 12000.0
     println(contaMaria.titular)
+    println(contaMaria.numero)
+    println(contaMaria.saldo)
 
     }
 
