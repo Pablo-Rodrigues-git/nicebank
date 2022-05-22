@@ -19,11 +19,11 @@ fun main() {
     println(contaPablo.numero)
 
     println("Depositando na conta da Maria")
-    deposita(contaMaria, 50.0)
+    contaMaria.deposita(50.0)
     println(contaMaria.saldo)
 
     println("Depositando na conta do Pablo")
-    deposita(contaPablo, 100.0)
+    contaPablo.deposita(100.0)
     println(contaPablo.saldo)
 
 }
@@ -32,13 +32,15 @@ class Conta {
     var titular = ""
     var numero = 0
     var saldo = 0.0
+
+    fun deposita (valor: Double){ // tornamos essa função membro do objeto conta, não sendo mais necessário instanciar a conta por parâmetro
+
+        saldo += valor // como a conta é membro, não precisamos mais declara-la ao incrementar o valor.
+
+    }
 }
 
-fun deposita (conta: Conta, valor: Double){ // criado a função, espera uma conta : Conta e espera um valor : Double
 
-    conta.saldo += valor // estou dizendo que conta.saldo incrementa o valor que é double
-
-}
 
 fun testaCopiaEReferencias(){
 
