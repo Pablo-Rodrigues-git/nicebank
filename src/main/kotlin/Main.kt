@@ -4,13 +4,13 @@ fun main() {
     val contaPablo = Conta()  // Apontando para um objeto, o que me permite acessar e alterar os atributos dentro dele.
     contaPablo.titular = "Pablao Mitico"
     contaPablo.numero = 1000
-    contaPablo.saldo = 1000.0
+    contaPablo.saldo = 50.0
 
 
     val contaMaria = Conta()
     contaMaria.titular = "Maria Rafaela"
     contaMaria.numero = 1001
-    contaMaria.saldo = 1000.0
+    contaMaria.saldo = 100.0
 
     println(contaMaria.titular)
     println(contaMaria.numero)
@@ -18,13 +18,24 @@ fun main() {
     println(contaPablo.titular)
     println(contaPablo.numero)
 
-    println("Depositando na conta da Maria")
-    contaMaria.deposita(50.0)
-    println(contaMaria.saldo)
 
+    // deposito
     println("Depositando na conta do Pablo")
     contaPablo.deposita(100.0)
     println(contaPablo.saldo)
+
+    println("Depositando na conta da Maria")
+    contaMaria.deposita(100.0)
+    println(contaMaria.saldo)
+
+    // saque
+    println("Sacando na conta do Pablo")
+    contaPablo.saca(100.0)
+    println("Saldo atual: ${contaPablo.saldo}")
+
+    println("Sacando na conta da Maria")
+    contaMaria.saca(200.0)
+    println("Saldo atual: ${contaMaria.saldo}")
 
 }
 
@@ -37,6 +48,13 @@ class Conta {
 
         saldo += valor // como a conta é membro, não precisamos mais declara-la ao incrementar o valor.
 
+    }
+
+    fun saca (valor: Double){
+
+        if(saldo >= valor){
+            saldo -= valor
+        }
     }
 }
 
