@@ -4,7 +4,7 @@ fun main() {
     val contaPablo = Conta()  // Apontando para um objeto, o que me permite acessar e alterar os atributos dentro dele.
     contaPablo.titular = "Pablao Mitico"
     contaPablo.numero = 1000
-    contaPablo.saldo = 50.0
+    contaPablo.saldo = 100.0
 
 
     val contaMaria = Conta()
@@ -30,12 +30,20 @@ fun main() {
 
     // saque
     println("Sacando na conta do Pablo")
-    contaPablo.saca(100.0)
+    contaPablo.saca(50.0)
     println("Saldo atual: ${contaPablo.saldo}")
 
     println("Sacando na conta da Maria")
-    contaMaria.saca(200.0)
+    contaMaria.saca(50.0)
     println("Saldo atual: ${contaMaria.saldo}")
+
+    if (contaPablo.transfere(100.0, contaMaria)){
+        println("Transferencia realizada com sucesso")
+    } else {
+        println("Falha na transferência")
+    }
+    println(contaPablo.saldo)
+    println(contaMaria.saldo)
 
 }
 
@@ -55,6 +63,15 @@ class Conta {
         if(saldo >= valor){
             saldo -= valor
         }
+    }
+
+    fun transfere (valor: Double, destino: Conta):  Boolean {
+        if (saldo >= valor){
+            saldo -= valor
+            destino.saldo + valor
+            return true
+        }
+            return false
     }
 }
 
