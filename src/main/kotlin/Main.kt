@@ -4,29 +4,40 @@ fun main() {
     val contaPablo = Conta()  // Apontando para um objeto, o que me permite acessar e alterar os atributos dentro dele.
     contaPablo.titular = "Pablao Mitico"
     contaPablo.numero = 1000
-    contaPablo.saldo = 10000.0
+    contaPablo.saldo = 1000.0
 
 
     val contaMaria = Conta()
     contaMaria.titular = "Maria Rafaela"
     contaMaria.numero = 1001
-    contaMaria.saldo = 12000.0
+    contaMaria.saldo = 1000.0
 
-//    println(contaMaria.titular)
-//    println(contaMaria.numero)
-//    println(contaMaria.saldo)
-//
-//    println(contaPablo.titular)
-//    println(contaPablo.numero)
-//    println(contaPablo.saldo)
+    println(contaMaria.titular)
+    println(contaMaria.numero)
 
-    testaCopiaEReferencias()
+    println(contaPablo.titular)
+    println(contaPablo.numero)
+
+    println("Depositando na conta da Maria")
+    deposita(contaMaria, 50.0)
+    println(contaMaria.saldo)
+
+    println("Depositando na conta do Pablo")
+    deposita(contaPablo, 100.0)
+    println(contaPablo.saldo)
+
 }
 
 class Conta {
     var titular = ""
     var numero = 0
     var saldo = 0.0
+}
+
+fun deposita (conta: Conta, valor: Double){ // criado a função, espera uma conta : Conta e espera um valor : Double
+
+    conta.saldo += valor // estou dizendo que conta.saldo incrementa o valor que é double
+
 }
 
 fun testaCopiaEReferencias(){
