@@ -3,23 +3,30 @@ fun main() {
 
     Conta() // Instância de uma classe
 
-    val contaPablo = Conta()  // Apontando para um objeto, o que me permite acessar e alterar os atributos dentro dele.
-    contaPablo.titular = "Pablao Mitico"
-    contaPablo.numero = 1000
-    contaPablo.saldo = 10000.0
-    println(contaPablo.titular)
-    println(contaPablo.numero)
-    println(contaPablo.saldo)
+//    val contaPablo = Conta()  // Apontando para um objeto, o que me permite acessar e alterar os atributos dentro dele.
+//    contaPablo.titular = "Pablao Mitico"
+//    contaPablo.numero = 1000
+//    contaPablo.saldo = 10000.0
+//    println(contaPablo.titular)
+//    println(contaPablo.numero)
+//    println(contaPablo.saldo)
+//
+//    val contaMaria = Conta()
+//    contaMaria.titular = "Maria Rafaela"
+//    contaMaria.numero = 1001
+//    contaMaria.saldo = 12000.0
+//    println(contaMaria.titular)
+//    println(contaMaria.numero)
+//    println(contaMaria.saldo)
 
-    val contaMaria = Conta()
-    contaMaria.titular = "Maria Rafaela"
-    contaMaria.numero = 1001
-    contaMaria.saldo = 12000.0
-    println(contaMaria.titular)
-    println(contaMaria.numero)
-    println(contaMaria.saldo)
+    val numeroX = 10 // criei uma variável e passei o numero 10 por parâmetro
+    var numeroY = numeroX // criei uma segunda variável que recebe por parâmetro a variavel numeroX (anterior)
+    numeroY++ // incerementei a variavel numeroY sem alterara o valor de numeroX
 
-    }
+    println(numeroX)
+    println(numeroY)
+
+}
 
 class Conta {
     var titular = ""
@@ -27,7 +34,7 @@ class Conta {
     var saldo = 0.0
 }
 
-fun testaLacos(){
+fun testaLacos() {
     var i = 0
     while (i < 5) {
 
