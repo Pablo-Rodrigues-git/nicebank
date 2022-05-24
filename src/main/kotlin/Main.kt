@@ -1,97 +1,82 @@
 fun main() {
     println("Bem vindo ao Nice Bank!!!")
 
-    val contaPablo = Conta()  // Apontando para um objeto, o que me permite acessar e alterar os atributos dentro dele.
-    contaPablo.titular = "Pablao Mitico"
-    contaPablo.numero = 1000
-    contaPablo.setSaldo(100.0)
+    val contaPablo = Conta(titular = "Pablo Rodrigues", numero = 1000)
+    contaPablo.deposita(100.0)
 
 
-    val contaMaria = Conta()
-    contaMaria.titular = "Maria Rafaela"
-    contaMaria.numero = 1001
-    contaMaria.setSaldo(100.0)
+    val contaMaria = Conta(numero = 1001, titular = "Maria Rafaela")
+    contaMaria.deposita(100.0)
 
     println(contaMaria.titular)
     println(contaMaria.numero)
-    println(contaMaria.getSaldo())
+    println(contaMaria.saldo)
 
     println(contaPablo.titular)
     println(contaPablo.numero)
-    println(contaPablo.getSaldo())
+    println(contaPablo.saldo)
 
 
-//    // deposito
-//    println("Depositando na conta do Pablo")
-//    contaPablo.deposita(100.0)
-//    println(contaPablo.saldo)
-//
-//    println("Depositando na conta da Maria")
-//    contaMaria.deposita(100.0)
-//    println(contaMaria.saldo)
-//
-//    // saque
-//    println("Sacando na conta do Pablo")
-//    contaPablo.saca(50.0)
-//    println("Saldo atual: ${contaPablo.saldo}")
-//
-//    println("Sacando na conta da Maria")
-//    contaMaria.saca(50.0)
-//    println("Saldo atual: ${contaMaria.saldo}")
-//
-//    println("transferência da conta do Pablo para Maria")
-//    if (contaPablo.transfere(100.0, contaMaria)){
-//        println("Transferencia realizada com sucesso")
-//    } else {
-//        println("Falha na transferência")
-//    }
-//    println(contaPablo.saldo)
-//    println(contaMaria.saldo)
+    // deposito
+    println("Depositando na conta do Pablo")
+    contaPablo.deposita(100.0)
+    println(contaPablo.saldo)
+
+    println("Depositando na conta da Maria")
+    contaMaria.deposita(100.0)
+    println(contaMaria.saldo)
+
+    // saque
+    println("Sacando na conta do Pablo")
+    contaPablo.saca(50.0)
+    println("Saldo atual: ${contaPablo.saldo}")
+
+    println("Sacando na conta da Maria")
+    contaMaria.saca(50.0)
+    println("Saldo atual: ${contaMaria.saldo}")
+
+    println("transferência da conta do Pablo para Maria")
+    if (contaPablo.transfere(100.0, contaMaria)) {
+        println("Transferencia realizada com sucesso")
+    } else {
+        println("Falha na transferência")
+    }
+    println(contaPablo.saldo)
+    println(contaMaria.saldo)
+
 }
 
-class Conta {
-    var titular = ""
-    var numero = 0
-    private var saldo = 0.0
+class Conta(
+    var titular: String,
+    var numero: Int
+) {
+    var saldo = 0.0
+        private set
 
-    fun deposita (valor: Double){ // tornamos essa função membro do objeto conta, não sendo mais necessário instanciar a conta por parâmetro
-
-        saldo += valor // como a conta é membro, não precisamos mais declara-la ao incrementar o valor.
-
+    fun deposita(valor: Double) {
+        if (valor > 0) {
+            this.saldo += valor
+        }
     }
 
-    fun saca (valor: Double){
-
-        if(saldo >= valor){
+    fun saca(valor: Double) {
+        if (saldo >= valor) {
             saldo -= valor
         }
     }
 
-    fun transfere (valor: Double, destino: Conta):  Boolean {
-        if (saldo >= valor){
+    fun transfere(valor: Double, destino: Conta): Boolean {
+        if (saldo >= valor) {
             saldo -= valor
             destino.deposita(valor)
             return true
         }
-            return false
-    }
-
-    fun getSaldo(): Double{
-        return saldo
-    }
-
-    fun setSaldo(valor: Double){
-        if(saldo > 0){
-            saldo = valor
-        }
+        return false
     }
 }
 
 
-
-fun testaCopiaEReferencias(){
-
-    Conta() // Instância de uma classe Conta()
+fun testaCopiaEReferencias() {
 
     val numeroX = 10
     var numeroY = numeroX // criei uma segunda variável que recebe por parâmetro a variavel numeroX (anterior)
@@ -106,7 +91,7 @@ fun testaCopiaEReferencias(){
      */
 
 
-    val contaLucas = Conta()
+    val contaLucas = Conta("Lucas", 1002)
     contaLucas.titular = "Lucas"
     var contaCarol = contaLucas
     contaCarol.titular = "Carol"
