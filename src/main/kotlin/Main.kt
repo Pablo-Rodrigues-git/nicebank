@@ -16,7 +16,7 @@ fun main() {
     val Maria = Diretor(
         nome = "Maria",
         cpf = "333.333.333-33",
-        salario = 2000.0,
+        salario = 5000.0,
         senha = 1337,
         plr = 1000.0
     )
