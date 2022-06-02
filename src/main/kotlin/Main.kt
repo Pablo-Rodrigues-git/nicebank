@@ -13,6 +13,13 @@ fun main() {
         salario = 2000.0,
         senha = 1234
     )
+    val Maria = Diretor(
+        nome = "Maria",
+        cpf = "333.333.333-33",
+        salario = 2000.0,
+        senha = 1337,
+        plr = 1000.0
+    )
 
     println("Nome: ${Pablo.nome}")
     println("Cpf: ${Pablo.cpf}")
@@ -23,9 +30,20 @@ fun main() {
     println("Cpf: ${Valdirene.cpf}")
     println("Salario: ${Valdirene.salario}")
     println("Bonificação: ${Valdirene.bonificacao()}")
-    println("Autenticado com sucesso ${Valdirene.autentica(1235)}")
 
-    if (Valdirene.autentica(1235)){
+    if (Valdirene.autentica(1234)){
+        println("Autenticou com sucesso")
+    } else {
+        println("Autenticação Falhou")
+    }
+
+    println("Nome: ${Maria.nome}")
+    println("Cpf: ${Maria.cpf}")
+    println("Salario: ${Maria.salario}")
+    println("Bonificação: ${Maria.bonificacao()}")
+    println("Sua PLR: ${Maria.plr}")
+
+    if (Maria.autentica(1337)){
         println("Autenticou com sucesso")
     } else {
         println("Autenticação Falhou")
