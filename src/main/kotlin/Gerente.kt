@@ -10,9 +10,20 @@ class Gerente(
     }
 
     fun autentica(senha: Int): Boolean {
-        if (senha == 1234) {
+        if (senha == this.senha) {
             return true
         }
             return false
+    }
+
+    companion object {
+        fun newInstance(): Gerente {
+            return Gerente(
+                nome = "Luca",
+                salario = 5000.0,
+                cpf = "XXX.XXX.XXX-XX",
+                senha = 5678,
+            )
+        }
     }
 }
